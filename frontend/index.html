@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Flor de Açúcar — Confeitaria Artesanal</title>
+<meta name="description" content="Bolos, tortas e doces finos artesanais. Peça para retirar ou receba em casa.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 40 40%22><circle cx=%2220%22 cy=%2212%22 r=%227%22 fill=%22%23EFB1BF%22/><circle cx=%2212%22 cy=%2222%22 r=%227%22 fill=%22%23F7DCE2%22/><circle cx=%2228%22 cy=%2222%22 r=%227%22 fill=%22%23F7DCE2%22/><circle cx=%2220%22 cy=%2226%22 r=%228%22 fill=%22%23C6667B%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/variables.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+
+<div id="loadScreen">
+  <svg class="spinner" width="46" height="46" viewBox="0 0 46 46" fill="none"><circle cx="23" cy="23" r="19" stroke="#C6667B" stroke-width="3" stroke-dasharray="80" stroke-linecap="round"/></svg>
+  <p>Preparando a confeitaria…</p>
+</div>
+
+<!-- ================= HEADER ================= -->
+<header>
+  <div class="nav">
+    <a href="#home" class="logo">
+      <svg width="38" height="38" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="12" r="7" fill="#EFB1BF"/><circle cx="12" cy="22" r="7" fill="#F7DCE2"/><circle cx="28" cy="22" r="7" fill="#F7DCE2"/><circle cx="20" cy="26" r="8" fill="#C6667B"/><circle cx="20" cy="24" r="3" fill="#D9A968"/></svg>
+      <span>Flor de Açúcar<small>Confeitaria Artesanal</small></span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#home">Início</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#promocoes">Promoções</a>
+      <a href="#cardapio">Cardápio</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="icon-btn" id="cartBtn" aria-label="Abrir carrinho">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" color="#9E4759"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <span class="cart-count" id="cartCount" style="display:none;">0</span>
+      </button>
+      <button class="icon-btn burger" id="burgerBtn" aria-label="Abrir menu">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9E4759" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div>
+      <div class="eyebrow hero-eyebrow">Feito à mão, todos os dias</div>
+      <h1>Doces que <em>encantam</em> antes mesmo da primeira mordida</h1>
+      <p class="lead">Bolos, tortas e doces finos preparados com ingredientes selecionados e todo carinho de uma confeitaria de bairro. Peça para retirar ou receba em casa.</p>
+      <div class="hero-cta">
+        <a href="#cardapio" class="btn btn-primary">Ver cardápio</a>
+        <a href="#promocoes" class="btn btn-ghost">Promoções da semana</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><b>+8</b><span>anos de doçura</span></div>
+        <div class="hero-stat"><b>4.9★</b><span>avaliação média</span></div>
+        <div class="hero-stat"><b>100%</b><span>artesanal</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-plate">
+        <img src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?q=80&w=800&auto=format&fit=crop" alt="Bolo artesanal decorado da confeitaria Flor de Açúcar" width="420" height="420">
+        <div class="hero-badge b1">🍓 Fresquinho todo dia</div>
+        <div class="hero-badge b2">🚲 Delivery cuidadoso</div>
+      </div>
+    </div>
+  </div>
+  <svg class="swirl-divider" viewBox="0 0 1200 60" preserveAspectRatio="none">
+    <path d="M0,30 C150,60 300,0 450,30 C600,60 750,0 900,30 C1050,60 1150,10 1200,30 L1200,60 L0,60 Z" fill="var(--cream)"/>
+    <path class="draw" d="M0,30 C150,60 300,0 450,30 C600,60 750,0 900,30 C1050,60 1150,10 1200,30" fill="none" stroke="var(--rose)" stroke-width="2" opacity="0.4"/>
+  </svg>
+</section>
+
+<!-- ================= SOBRE ================= -->
+<section class="about" id="sobre">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Nossa essência</div>
+      <h2>Uma confeitaria com alma de flor</h2>
+      <p>Cada receita nasce na nossa cozinha com ingredientes selecionados, técnica apurada e a mesma receita de carinho da nossa avó — do bolo simples ao doce mais elaborado.</p>
+    </div>
+    <div class="about-grid">
+      <div class="about-card">
+        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c1 3-2 4-2 7a2 2 0 0 0 4 0c0-3-3-4-2-7z"/><path d="M5 22c0-5 3-9 7-9s7 4 7 9"/></svg></div>
+        <h3>Ingredientes selecionados</h3>
+        <p>Frutas da estação, chocolate belga e insumos escolhidos a dedo para cada receita.</p>
+      </div>
+      <div class="about-card">
+        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <h3>Feito na hora</h3>
+        <p>Produção diária em pequenos lotes para garantir frescor em cada mordida.</p>
+      </div>
+      <div class="about-card">
+        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+        <h3>Entrega cuidadosa</h3>
+        <p>Embalagens seguras para o seu doce chegar tão bonito quanto saiu da nossa cozinha.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROMOÇÕES ================= -->
+<section class="promo" id="promocoes">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Por tempo limitado</div>
+      <h2>Promoções da semana</h2>
+      <p id="promoBannerText">Aproveite condições especiais em itens selecionados do nosso cardápio.</p>
+    </div>
+    <div class="promo-track" id="promoTrack"><div class="promo-empty">Carregando promoções…</div></div>
+  </div>
+</section>
+
+<!-- ================= CARDÁPIO ================= -->
+<section class="menu" id="cardapio">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Nosso cardápio</div>
+      <h2>Escolha o seu doce favorito</h2>
+      <p>Bolos, tortas, doces finos e salgados prontos para o seu pedido.</p>
+    </div>
+    <div class="cat-tabs" id="catTabs"></div>
+    <div class="menu-grid" id="menuGrid"><div class="menu-loading">Carregando cardápio…</div></div>
+  </div>
+</section>
+
+<!-- ================= COMO FUNCIONA ================= -->
+<section class="steps">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Como funciona</div>
+      <h2>Do carrinho até a sua mesa</h2>
+    </div>
+    <div class="steps-row">
+      <div class="step"><div class="num">01</div><h4>Monte seu pedido</h4><p>Escolha os doces no cardápio e adicione ao carrinho.</p></div>
+      <div class="step"><div class="num">02</div><h4>Escolha retirada ou entrega</h4><p>Informe seus dados e finalize pelo site.</p></div>
+      <div class="step"><div class="num">03</div><h4>Confirme pelo WhatsApp</h4><p>Envie o resumo do pedido e combine o pagamento com a gente.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTATO ================= -->
+<section class="contact" id="contato">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Fale conosco</div>
+      <h2>Visite ou peça sem sair de casa</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="info-card">
+          <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div><h5>Endereço</h5><p id="infoAddress"></p></div>
+        </div>
+        <div class="info-card">
+          <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+          <div><h5>Telefone / WhatsApp</h5><a id="infoPhone" href="#"></a></div>
+        </div>
+        <div class="info-card">
+          <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <div><h5>Horário de funcionamento</h5><p id="infoHours"></p></div>
+        </div>
+        <div class="info-card">
+          <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div>
+          <div>
+            <h5>Redes sociais</h5>
+            <div class="social-row">
+              <a id="infoInsta" href="#" target="_blank" rel="noopener" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+              <a id="infoWhats" href="#" target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.8 14.02c-.24.68-1.4 1.3-1.93 1.35-.5.05-1.02.24-3.42-.72-2.88-1.15-4.73-4.06-4.87-4.25-.14-.19-1.17-1.55-1.17-2.96 0-1.4.74-2.09 1-2.38.26-.28.57-.35.76-.35h.55c.18 0 .42-.03.64.5.24.55.8 1.92.87 2.06.07.14.12.31.02.5-.09.19-.14.31-.28.47-.14.16-.29.36-.42.48-.14.14-.28.29-.12.57.16.28.72 1.19 1.55 1.93 1.06.95 1.96 1.24 2.24 1.38.28.14.44.12.6-.07.16-.19.68-.79.86-1.06.18-.28.36-.23.6-.14.24.09 1.55.73 1.82.87.27.14.45.2.51.32.07.11.07.66-.17 1.32z"/></svg></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="map-box"><iframe id="mapFrame" src="" loading="lazy" title="Mapa da confeitaria" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo">
+          <svg width="34" height="34" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="12" r="7" fill="#EFB1BF"/><circle cx="12" cy="22" r="7" fill="#F7DCE2"/><circle cx="28" cy="22" r="7" fill="#F7DCE2"/><circle cx="20" cy="26" r="8" fill="#C6667B"/></svg>
+          <span>Flor de Açúcar</span>
+        </div>
+        <p>Confeitaria artesanal feita com ingredientes selecionados e muito carinho, para adoçar o seu dia.</p>
+      </div>
+      <div>
+        <h5>Navegação</h5>
+        <ul><li><a href="#cardapio">Cardápio</a></li><li><a href="#promocoes">Promoções</a></li><li><a href="#sobre">Sobre nós</a></li><li><a href="#contato">Contato</a></li></ul>
+      </div>
+      <div>
+        <h5>Atendimento</h5>
+        <ul><li id="footPhone"></li><li id="footHours"></li></ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <p>© 2026 Flor de Açúcar Confeitaria. Todos os direitos reservados.</p>
+      <a class="admin-link" href="admin.html">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 6 6 1-4.5 4.5L17.5 20 12 17l-5.5 3 1-6.5L3 9l6-1z"/></svg>
+        Área do administrador
+      </a>
+    </div>
+  </div>
+</footer>
+
+<!-- ================= CART DRAWER ================= -->
+<div class="overlay" id="overlay"></div>
+<div class="drawer" id="cartDrawer">
+  <div class="drawer-head">
+    <h3 id="cartDrawerTitle">Seu carrinho</h3>
+    <button class="close-x" id="cartCloseBtn" aria-label="Fechar carrinho">✕</button>
+  </div>
+  <div class="drawer-body" id="cartBody"></div>
+  <div class="drawer-foot" id="cartFoot"></div>
+</div>
+
+<div class="toast-wrap" id="toastWrap"></div>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
