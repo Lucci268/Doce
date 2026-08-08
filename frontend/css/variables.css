@@ -1,0 +1,31 @@
+/* ==========================================================================
+   Tokens de design — cores, sombras, raios de borda.
+   Mudar a identidade visual do site começa (quase sempre) aqui.
+   ========================================================================== */
+:root {
+  --white: #ffffff;
+  --cream: #fcf7f4;
+  --blush-soft: #fbeaee;
+  --blush: #f7dce2;
+  --pink: #efb1bf;
+  --rose: #c6667b;
+  --rose-dark: #9e4759;
+  --charcoal: #3c3134;
+  --charcoal-soft: #7a6a6d;
+  --gold: #d9a968;
+  --green-ok: #6e9c7c;
+  --amber: #d6a257;
+  --blue-info: #7c93b8;
+  --red-warn: #c4707a;
+
+  --shadow-sm: 0 4px 16px rgba(158, 71, 89, 0.08);
+  --shadow-md: 0 10px 34px rgba(158, 71, 89, 0.14);
+  --shadow-lg: 0 20px 60px rgba(158, 71, 89, 0.22);
+
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 32px;
+
+  --font-display: 'Cormorant Garamond', serif;
+  --font-body: 'Jost', sans-serif;
+}
