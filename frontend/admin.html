@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Painel Administrativo — Flor de Açúcar</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 40 40%22><circle cx=%2220%22 cy=%2212%22 r=%227%22 fill=%22%23EFB1BF%22/><circle cx=%2212%22 cy=%2222%22 r=%227%22 fill=%22%23F7DCE2%22/><circle cx=%2228%22 cy=%2222%22 r=%227%22 fill=%22%23F7DCE2%22/><circle cx=%2220%22 cy=%2226%22 r=%228%22 fill=%22%23C6667B%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/variables.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+<div id="loadScreen" style="position:fixed;inset:0;background:var(--cream);z-index:9999;display:flex;align-items:center;justify-content:center;">
+  <svg class="spinner" width="42" height="42" viewBox="0 0 46 46" fill="none"><circle cx="23" cy="23" r="19" stroke="#C6667B" stroke-width="3" stroke-dasharray="80" stroke-linecap="round"/></svg>
+</div>
+
+<!-- ================= LOGIN ================= -->
+<div class="admin-login-wrap" id="adminLoginWrap" style="display:none;">
+  <a href="index.html" class="back-site">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+    Voltar ao site
+  </a>
+  <div class="admin-login-card">
+    <svg class="mark" width="46" height="46" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="12" r="7" fill="#EFB1BF"/><circle cx="12" cy="22" r="7" fill="#F7DCE2"/><circle cx="28" cy="22" r="7" fill="#F7DCE2"/><circle cx="20" cy="26" r="8" fill="#C6667B"/></svg>
+    <h2>Área do administrador</h2>
+    <p>Entre com suas credenciais para gerenciar o cardápio, os pedidos e as informações de contato.</p>
+    <div class="form-error" id="adminErr">Usuário ou senha incorretos.</div>
+    <div class="field" style="text-align:left;">
+      <label for="adminUserInput">Usuário</label>
+      <input type="text" id="adminUserInput" placeholder="admin" autocomplete="username">
+    </div>
+    <div class="field" style="text-align:left;">
+      <label for="adminPassInput">Senha</label>
+      <input type="password" id="adminPassInput" placeholder="Digite a senha" autocomplete="current-password">
+    </div>
+    <button class="btn btn-primary btn-block" id="adminLoginBtn">Entrar</button>
+  </div>
+</div>
+
+<!-- ================= DASHBOARD ================= -->
+<div class="admin-shell" id="adminShell">
+  <div class="admin-top">
+    <div class="admin-brand">
+      <svg width="30" height="30" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="12" r="7" fill="#EFB1BF"/><circle cx="12" cy="22" r="7" fill="#F7DCE2"/><circle cx="28" cy="22" r="7" fill="#F7DCE2"/><circle cx="20" cy="26" r="8" fill="#C6667B"/></svg>
+      <span>Painel administrativo</span>
+    </div>
+    <div class="admin-tabs">
+      <button class="admin-tab active" data-tab="pedidos">Pedidos</button>
+      <button class="admin-tab" data-tab="cardapio">Cardápio</button>
+      <button class="admin-tab" data-tab="config">Configurações</button>
+    </div>
+    <div style="display:flex; gap:10px; align-items:center;">
+      <a href="index.html" class="btn btn-ghost btn-sm">Ver site</a>
+      <button class="btn btn-soft btn-sm" id="adminLogoutBtn">Sair</button>
+    </div>
+  </div>
+
+  <div class="admin-body">
+    <!-- PEDIDOS -->
+    <div class="admin-panel active" id="panel-pedidos">
+      <div class="admin-head-row"><h2>Pedidos recebidos</h2><button class="btn btn-ghost btn-sm" id="refreshOrdersBtn">Atualizar</button></div>
+      <div class="admin-stats" id="orderStats"></div>
+      <div id="ordersWrap"></div>
+    </div>
+
+    <!-- CARDÁPIO -->
+    <div class="admin-panel" id="panel-cardapio">
+      <div class="admin-head-row"><h2>Itens do cardápio</h2><button class="btn btn-primary btn-sm" id="addItemBtn">+ Novo item</button></div>
+      <div id="itemsWrap"></div>
+    </div>
+
+    <!-- CONFIG -->
+    <div class="admin-panel" id="panel-config">
+      <div class="admin-head-row"><h2>Configurações do site</h2></div>
+      <div class="config-grid">
+        <div class="config-card">
+          <h4>Informações de contato</h4>
+          <div class="field"><label>Endereço</label><input id="cfgAddress"></div>
+          <div class="field"><label>Telefone / WhatsApp (com DDI e DDD, só números)</label><input id="cfgPhone" placeholder="5581999990000"></div>
+          <div class="field"><label>Horário de funcionamento</label><input id="cfgHours"></div>
+          <div class="field"><label>Instagram (link completo)</label><input id="cfgInsta"></div>
+          <div class="field"><label>Taxa de entrega (R$)</label><input id="cfgDeliveryFee" type="number" step="0.01" min="0"></div>
+          <button class="btn btn-primary btn-block" id="saveContactBtn">Salvar informações</button>
+        </div>
+        <div>
+          <div class="config-card" style="margin-bottom:24px;">
+            <h4>Texto da faixa de promoções</h4>
+            <div class="field"><textarea id="cfgPromoText"></textarea></div>
+            <button class="btn btn-primary btn-block" id="saveTextsBtn">Salvar texto</button>
+          </div>
+          <div class="config-card">
+            <h4>Alterar senha de acesso</h4>
+            <div class="field"><label>Senha atual</label><input type="password" id="cfgCurrentPass"></div>
+            <div class="field"><label>Nova senha</label><input type="password" id="cfgNewPass" placeholder="Mínimo 6 caracteres"></div>
+            <div class="field"><label>Confirmar nova senha</label><input type="password" id="cfgNewPass2"></div>
+            <button class="btn btn-soft btn-block" id="savePassBtn">Atualizar senha</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ITEM MODAL -->
+<div class="modal-overlay" id="itemModalOverlay">
+  <div class="modal-box">
+    <h3 id="itemModalTitle">Novo item</h3>
+    <div class="img-upload" id="imgUploadBox">
+      <img id="imgPreview" style="display:none;" alt="Pré-visualização da imagem">
+      <div id="imgUploadPlaceholder">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#C6667B" stroke-width="1.8" style="margin-bottom:8px;"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5L5 21"/></svg>
+        <p>Clique para enviar uma imagem (JPG, PNG ou WEBP)</p>
+      </div>
+      <input type="file" id="imgUploadInput" accept="image/jpeg,image/png,image/webp">
+    </div>
+    <div style="height:16px;"></div>
+    <div class="field"><label>Nome do item</label><input id="itNome" placeholder="Ex: Bolo de Chocolate Belga"></div>
+    <div class="field-row">
+      <div class="field"><label>Categoria</label><input id="itCategoria" list="catList" placeholder="Ex: Bolos"><datalist id="catList"></datalist></div>
+      <div class="field"><label>Preço (R$)</label><input id="itPreco" type="number" step="0.01" min="0" placeholder="0,00"></div>
+    </div>
+    <div class="field"><label>Descrição</label><textarea id="itDesc" placeholder="Descreva o item em poucas palavras"></textarea></div>
+    <div class="switch-row">
+      <div class="switch" id="itPromoSwitch"></div>
+      <span style="font-size:14px; font-weight:500;">Marcar como promoção</span>
+    </div>
+    <div class="field" id="itPromoPriceWrap" style="display:none;"><label>Preço promocional (R$)</label><input id="itPromoPreco" type="number" step="0.01" min="0"></div>
+    <div class="switch-row">
+      <div class="switch on" id="itAvailSwitch"></div>
+      <span style="font-size:14px; font-weight:500;">Disponível no cardápio</span>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-ghost btn-block" id="itemCancelBtn">Cancelar</button>
+      <button class="btn btn-primary btn-block" id="itemSaveBtn">Salvar item</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast-wrap" id="toastWrap"></div>
+
+<script type="module" src="js/admin/admin-main.js"></script>
+</body>
+</html>
